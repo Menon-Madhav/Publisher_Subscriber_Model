@@ -3,7 +3,7 @@
 #include<iterator>
 
 using namespace std;
-
+// struct for each point
 struct Point
 {
 	int x;
@@ -20,7 +20,9 @@ list<Point> get_neighbors(Point s) {
 		ss.y = s.y + offsety[i];
 		send.push_back(ss);
 	}
-	
+	/*works till this line for all points plus remember the grid is of size 10x10 (0,0 to 9,9) 
+	  when one coordinate is 0 or 9 the following loop loops forever showing the extreme values
+	  */
 	for (auto i : send) {
 		int wx = i.x;
 		int wy = i.y;
@@ -38,7 +40,7 @@ list<Point> get_neighbors(Point s) {
 int main() {
 	list<Point> t;
 	Point e;
-	e.x = 9;
+	e.x = 9; //try different points by changing these values
 	e.y = 9;
 	t = get_neighbors(e);
 	cout << (t.begin())->x << "hi " << endl;
